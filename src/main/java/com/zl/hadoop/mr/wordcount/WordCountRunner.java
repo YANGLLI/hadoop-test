@@ -47,8 +47,14 @@ public class WordCountRunner {
         // 指定要处理的输入的原始数据存放路径,指定一个父目录就可以了，该目录下的所有文件都会统计
         FileInputFormat.setInputPaths(wcjob,new Path("/wc/srcdata/"));
 
+        // 本地模式：
+        //FileInputFormat.setInputPaths(wcjob,new Path("c:/wc/srcdata/"));
+
         // 指定处理结果的输出数据存放路径
         FileOutputFormat.setOutputPath(wcjob,new Path("/wc/output"));
+
+        //本地模式
+        //FileOutputFormat.setOutputPath(wcjob,new Path("c:/wc/output"));
 
         // 将job提交给集群运行，参数表示是否打印处理过程
         wcjob.waitForCompletion(true);
