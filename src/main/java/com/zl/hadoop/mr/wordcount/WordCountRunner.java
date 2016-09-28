@@ -56,7 +56,7 @@ public class WordCountRunner {
         //本地模式
         //FileOutputFormat.setOutputPath(wcjob,new Path("c:/wc/output"));
 
-        // 将job提交给集群运行，参数表示是否打印处理过程
+        // 将job提交给集群运行，参数表示是否监控和打印job日志
         wcjob.waitForCompletion(true);
     }
 }
