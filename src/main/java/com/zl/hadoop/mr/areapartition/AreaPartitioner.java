@@ -24,7 +24,7 @@ public class AreaPartitioner<KEY,VALUE> extends Partitioner<KEY,VALUE> {
     @Override
     public int getPartition(KEY key, VALUE value, int i) {
 
-        // 从key中拿到手机号，查询手机归属字典，不同省份返回不同的组号
+        // 从key中拿到手机号，查询手机归属字典，不同省份返回不同的组号（将key进行分组）
         int areaCode = areaMap.get(key.toString().substring(0, 3))==null ? 5: areaMap.get(key.toString().substring(0, 3));
         return areaCode;
     }
