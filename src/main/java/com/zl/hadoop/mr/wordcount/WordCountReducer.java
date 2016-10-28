@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * ① Reducer<KEYIN,VALUEIN,KEYOUT,VALUEOUT>
  *
- * ② reducer的输入应该和mapper的输出类型对于。
+ * ② reducer的输入应该和mapper的输出类型对应。
  *
  * ③ mapreduce程序，默认输入为hdfs文件类型，输出也为hdfs文件类型
  */
