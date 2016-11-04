@@ -47,7 +47,8 @@ public class TopoMain {
 		builder.setBolt("upperbolt", new UpperBolt(), 4).shuffleGrouping("randomspout");
 
 		//将添加后缀的bolt组件设置到topology，并且指定它接收upperbolt组件的消息
-		builder.setBolt("suffixbolt", new SuffixBolt(), 4).shuffleGrouping("upperbolt");
+		// 一个task就是一个bolt的实例，可以这样认为，这里设置了suffixbolt的task为6，那么在/home/hadoop/stormoutput/中生成的文件数为6
+		builder.setBolt("suffixbolt", new SuffixBolt(), 4).setNumTasks(6).shuffleGrouping("upperbolt");
 
 		//用builder来创建一个topology
 		StormTopology demotop = builder.createTopology();
